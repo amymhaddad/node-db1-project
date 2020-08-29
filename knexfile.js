@@ -36,3 +36,4 @@ module.exports = {
     },
   },
 };
+//knex needs to know the details to conect to teh db
