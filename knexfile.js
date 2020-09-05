@@ -14,7 +14,6 @@ module.exports = {
     },
   },
 
-  // update the following configuration to use PostgreSQL
   production: {
     client: "pg",
     connection: {
@@ -36,4 +35,3 @@ module.exports = {
     },
   },
 };
-//knex needs to know the details to conect to teh db
