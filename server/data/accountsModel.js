@@ -8,8 +8,20 @@ module.exports = {
 	remove
 };
 
-function get() {
-	return db('accounts');
+//Now I need to update my Module  function to account for the fact that the user may LIMIT their results 
+//So I pass in the query 
+function get(query) {
+	const knexQuery = db('accounts')
+
+	if (query.limit) {
+		return knexQuery.limit(query.limit)
+	}
+	if (query.sortby) {
+		return knexQuery.orderBy(query.sortby, "desc")
+	}
+	else {
+		return db('accounts') 
+	}
 }
 
 function getById(id) {

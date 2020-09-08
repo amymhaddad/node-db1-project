@@ -4,11 +4,15 @@ const Account = require('../data/accountsModel');
 const { validateUserId, validateAccountDetails } = require('../middlewares/Middlewares');
 
 router.get('/', (req, res) => {
-	Account.get()
+
+	const {limit, sortby} = req.query
+	//Pass an obj in w/title prperty
+	Account.get({limit, sortby})
 		.then((accounts) => {
 			return res.status(200).json(accounts);
 		})
 		.catch((error) => {
+			console.log("Err", error)
 			return res.status(500).json({ error: 'Server Error' });
 		});
 });

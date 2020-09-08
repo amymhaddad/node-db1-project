@@ -2,7 +2,12 @@ module.exports = {
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./data/budget.db3",
+      //this path needs be where I run npm start -- the root dir. app.js (the high level file of project) 
+      //this path is relative to package.json
+      //ultiately getting claled from app.js which is called by apiRouter which calls my Modules
+
+      //this file creates the connection to the DB
+      filename: "./server/data/budget.db3",
     },
     useNullAsDefault: true,
     migrations: {
